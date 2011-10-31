@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>MelezhaBy</title>
+  <%= stylesheet_link_tag    "application" %>
+  <%= javascript_include_tag "application" %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+  <p class="notice"><%= notice %></p>
+  <p class="alert"><%= alert %></p>
+  <div class="container">
+    <%= yield %>
+    <div class="row">
+      <div class="span5">
+        <h4>Ссылки</h4>
+      </div>
+      <div class="span5">
+        <h4>Ссылки</h4>
+      </div>      
+      <div class="span5">
+        <%= form_for("user", :url => user_session_path) do |f| %>
+          <%= f.text_field :email %>
+          <%= f.password_field :password %>
+          <%= f.check_box :remember_me %>
+          <%= f.label :remember_me %>
+          <%= f.submit 'Sign in' %>
+          <%= link_to "Forgot your password?", new_password_path('user') %>
+        <% end %>
+      </div>
+    </div>
+    <footer>
+      Company name
+    </footer>
+  </div>
+  <div class="topbar-wrapper" style="z-index: 5;">
+      <div class="topbar" data-dropdown="dropdown">
+        <div class="topbar-inner">
+          <div class="container">
+            <h3><a href=<%= root_path %>>Мележа.by</a></h3>
+            <ul class="nav">
+              <!-- <li class="active"><a href="#">Главная</a></li> -->
+              <li class="dropdown">
+                <a href="#" class="dropdown-toggle">Услуги</a>
+                <ul class="dropdown-menu">
+                  <li><a href="#">Secondary link</a></li>
+                  <li><a href="#">Something else here</a></li>
+                  <li class="divider"></li>
+                  <li><a href="#">Another link</a></li>
+                </ul>
+              </li>
+              <li><a href="#">Компании</a></li>
+              <li><a href="#">Недвижимость</a></li>
+              <li><a href="#">О проекте</a></li>
+            </ul>
+            <ul class="nav secondary-nav">
+              <li class="dropdown">
+                <a href="#" class="dropdown-toggle">User panel</a>
+                <ul class="dropdown-menu">
+                  <li><a href=<%= new_user_session_path %>>Sign in</a></li>
+                  <li><a href=<%= new_user_registration_path %>>Sign up</a></li>
+                  <li class="divider"></li>
+                  <li><a href="#">Another</a></li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+        </div><!-- /topbar-inner -->
+      </div><!-- /topbar -->
+    </div>    
+</body>
+</html>

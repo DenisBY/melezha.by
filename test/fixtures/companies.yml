@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  title: Test Company 1
+  overview: MyText
+  address: 
+  contact: 
+  service: 
+
+two:
+  title: Test Company 2
+  overview: MyText 2
+  address: 
+  contact: 
+  service: 
