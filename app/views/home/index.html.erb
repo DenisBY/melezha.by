@@ -8,49 +8,35 @@
   <!--       <label for="xlInput">Найти</label> -->
         <div class="input">
           <input class="xlarge span6" id="xlInput" name="search-keywords" size="30" type="text" placeholder="Например: офисная бумага" >
-          <button class="btn">Найти</button>
+          <button class="btn primary">Найти</button>
         </div>
       </div><!-- /clearfix -->
     </fieldset>  
   </form>
 
   <% if @companies.present? %>
-    <table class="zebra-striped">
-      <thead>
-        <tr>
-          <th class="header">About company</th>
-          <th>Created At</th>
-        </tr>
-      </thead>
-      <tbody>
-       
-        <% @companies.each do |company| %>
-          <tr>
-            <td>
-              <h3><%= company.title %></h3>
-              <p><%= company.overview %></p>
-            </td>
-            <td><%= company.created_at %></td>
-          </tr>
-        <% end %>   
+    <h2>Результаты поиска:</h2>
+    <hr>
+    <% @companies.each do |company| %>
+      <h3><%= company.title %></h3>
+      <p><%= company.overview %></p>
+    <% end %>  
+  <% else %>  
+    <div class="list-top-query" id="list-top-query">
+      <h5>Популярные запросы:</h5>
+      <ul>
+        <li><a href="#" title="title">Офисная бумага</a></li>
+        <li><a href="#" title="title">Мебель</a></li>
+        <li><a href="#" title="title">Заправка катриджей</a></li>
 
-      </tbody>
-    </table>    
-  <% end %>  
-  <div class="list-top-query" id="list-top-query">
-    <h5>Популярные запросы:</h5>
-    <ul>
-      <li><a href="#" title="title">Офисная бумага</a></li>
-      <li><a href="#" title="title">Мебель</a></li>
-      <li><a href="#" title="title">Заправка катриджей</a></li>
+        <li><a href="#" title="title">Бухгалтерские услуги</a></li>
+        <li><a href="#" title="title">Кофе</a></li>
+        <li><a href="#" title="title">Разработка сайтов</a></li>
 
-      <li><a href="#" title="title">Бухгалтерские услуги</a></li>
-      <li><a href="#" title="title">Кофе</a></li>
-      <li><a href="#" title="title">Разработка сайтов</a></li>
+        <li><a href="#" title="title">Продвижение</a></li>
 
-      <li><a href="#" title="title">Продвижение</a></li>
-
-    </ul><!-- / -->
-  </div>    
+      </ul><!-- / -->
+    </div>
+  <% end %>
 </div>
 
