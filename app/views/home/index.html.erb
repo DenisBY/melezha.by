@@ -1,42 +1,48 @@
 <div class="hero-unit">
+
+<% if params['search-keywords'] == "" or params['search-keywords'] == nil %>
   <h1>Hello, world!</h1>
   <p>Vestibulum id ligula porta felis euismod semper. Integer posuere erat a ante venenatis dapibus posuere velit aliquet. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit.</p>
+<% end %>
+
   <form id="main-search-form" action=<%= url_for root_path %> method="GET">
     <fieldset>
       <legend>Поиск услуг и компаний</legend>
       <div class="clearfix">
-  <!--       <label for="xlInput">Найти</label> -->
         <div class="input">
-          <input class="xlarge span6" id="xlInput" name="search-keywords" size="30" type="text" placeholder="Например: офисная бумага" >
+          <% params['search-keywords'].present? ? value=params['search-keywords'] : value="" %>
+          <input class="xlarge span6" id="xlInput" name="search-keywords" size="30" type="text" placeholder="Например: офисная бумага" value="<%= value %>" >
           <button class="btn primary">Найти</button>
         </div>
       </div><!-- /clearfix -->
     </fieldset>  
   </form>
 
-  <% if @companies.present? %>
-    <h2>Результаты поиска:</h2>
-    <hr>
-    <% @companies.each do |company| %>
-       <h3><%= company.title %></h3>
-      <p><%= company.overview %></p>
-    <% end %>  
-  <% else %>  
-    <div class="list-top-query" id="list-top-query">
-      <h5>Популярные запросы:</h5>
+<% unless @companies.present? %>
+  <div class="list-top-query" id="list-top-query">
+      <h5>Примеры запросов:</h5>
       <ul>
-        <li><a href="#" title="title">Офисная бумага</a></li>
-        <li><a href="#" title="title">Мебель</a></li>
-        <li><a href="#" title="title">Заправка катриджей</a></li>
+        <li><a href="/?search-keywords=Офисная+бумага" title="title">Офисная бумага</a></li>
+        <li><a href="/?search-keywords=Мебель" title="title">Мебель</a></li>
+        <li><a href="/?search-keywords=Заправка+картриджей" title="title">Заправка картриджей</a></li>
 
-        <li><a href="#" title="title">Бухгалтерские услуги</a></li>
-        <li><a href="#" title="title">Кофе</a></li>
-        <li><a href="#" title="title">Разработка сайтов</a></li>
+        <li><a href="/?search-keywords=Бухгалтерские+услуги" title="title">Бухгалтерские услуги</a></li>
+        <li><a href="/?search-keywords=Кофе" title="title">Кофе</a></li>
+        <li><a href="/?search-keywords=Разработка+сайтов" title="title">Разработка сайтов</a></li>
 
-        <li><a href="#" title="title">Продвижение</a></li>
+        <li><a href="/?search-keywords=Продвижение" title="title">Продвижение</a></li>
 
       </ul><!-- / -->
-    </div>
+  </div>
+<% end %>
+  <% if @companies.present? %>
+    <% @companies.each do |company| %>
+       <h3><%= company.title %></h3>
+      <p> <%= company.overview %><br />
+          <%= company.address.address %><br />
+          <%= company.contact.type_contact%>: <%= company.contact.value%>
+      </p>
+    <% end %>
   <% end %>
 </div>
 

@@ -47,3 +47,4 @@ gem 'sunspot_rails'
 gem 'thinking-sphinx',
   :git     => 'git://github.com/freelancing-god/thinking-sphinx.git',
   :branch  => 'rails3'
+  
