@@ -16,30 +16,31 @@ ActiveRecord::Schema.define(:version => 20111101105954) do
   create_table "addresses", :force => true do |t|
     t.string   "address"
     t.string   "address2"
+    t.integer  "company_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  add_index "addresses", ["company_id"], :name => "index_addresses_on_company_id"
 
   create_table "companies", :force => true do |t|
     t.string   "title"
     t.text     "overview"
-    t.integer  "address_id"
-    t.integer  "contact_id"
-    t.integer  "service_id"
+    t.text     "addr"
+    t.text     "contact"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
-
-  add_index "companies", ["address_id"], :name => "index_companies_on_address_id"
-  add_index "companies", ["contact_id"], :name => "index_companies_on_contact_id"
-  add_index "companies", ["service_id"], :name => "index_companies_on_service_id"
 
   create_table "contacts", :force => true do |t|
     t.string   "type_contact"
     t.string   "value"
+    t.integer  "company_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  add_index "contacts", ["company_id"], :name => "index_contacts_on_company_id"
 
   create_table "rails_admin_histories", :force => true do |t|
     t.text     "message"
@@ -57,9 +58,12 @@ ActiveRecord::Schema.define(:version => 20111101105954) do
   create_table "services", :force => true do |t|
     t.string   "title"
     t.text     "overview"
+    t.integer  "company_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  add_index "services", ["company_id"], :name => "index_services_on_company_id"
 
   create_table "users", :force => true do |t|
     t.string   "email",                                 :default => "", :null => false

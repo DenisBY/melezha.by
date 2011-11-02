@@ -42,7 +42,7 @@ gem 'omniauth'
 gem 'cancan'
 gem 'rails_admin', :git => 'git://github.com/sferik/rails_admin.git'
 
-gem 'sunspot_rails'
+# gem 'sunspot_rails'
 
 gem 'thinking-sphinx',
   :git     => 'git://github.com/freelancing-god/thinking-sphinx.git',
