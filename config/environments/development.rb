@@ -27,4 +27,23 @@ MelezhaBy::Application.configure do
 
   # Expands the lines which load the assets
   config.assets.debug = true
+
+  config.action_mailer.default_url_options = { :host => "localhost:3000" }
+
+  config.action_mailer.raise_delivery_errors = true
+  config.action_mailer.perform_deliveries = true
+
+  ActionMailer::Base.delivery_method = :smtp
+
+  ActionMailer::Base.smtp_settings = {
+    :address              => "smtp.gmail.com",
+    :port                 => "587",
+    :tls                  => true,
+    :domain               => "developer.by",
+    :user_name            => "mailrobot@developer.by",
+    :password             => "killpop99",
+    :authentication       => "plain",
+    :enable_starttls_auto => true
+  }  
+
 end
