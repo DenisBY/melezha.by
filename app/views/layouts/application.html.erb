@@ -94,23 +94,23 @@
     </div> -->
 
       <div class="row">
+        <% if notice %>
+          <div class="alert-message success fade in" data-alert="alert">
+            <a class="close" href="#">×</a>
+            <%= notice %>
+          </div>
+        <% end %>
+
+        <% if alert %>
+          <div class="alert-message warning fade in" data-alert="alert">
+            <a class="close" href="#">×</a>
+            <%= alert %>
+          </div>
+        <% end %>
+        
         <%= yield %>
       </div>
     </div>
-
-    <% if notice %>
-      <div class="alert-message success fade in" data-alert="alert">
-        <a class="close" href="#">×</a>
-        <%= notice %>
-      </div>
-    <% end %>
-
-    <% if alert %>
-      <div class="alert-message warning fade in" data-alert="alert">
-        <a class="close" href="#">×</a>
-        <%= alert %>
-      </div>
-    <% end %>
 
     <div class="clearfix" align="right">
       <% if user_signed_in? %>
@@ -185,7 +185,7 @@
                   </li>
                 </ul>
               </li>
-            </ul> -->
+            </ul>
           </div>
         </div><!-- /topbar-inner -->
       </div><!-- /topbar -->
