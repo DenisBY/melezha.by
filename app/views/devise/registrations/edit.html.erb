@@ -1,25 +1,45 @@
-<h2>Edit <%= resource_name.to_s.humanize %></h2>
+<div class="span10">
+  <h2>Редактирование профиля</h2>
 
-<%= form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :method => :put }) do |f| %>
-  <%= devise_error_messages! %>
+  <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :method => :put }) do |f| %>
+    <%= devise_error_messages! %>
 
-  <div><%= f.label :email %><br />
-  <%= f.email_field :email %></div>
+  <div class="clearfix">
+    <%= f.label :email, "Электронная почта" %>
+    <div class="input"><%= f.email_field :email %></div>
+  </div>
 
-  <div><%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
-  <%= f.password_field :password %></div>
+  <div class="clearfix">
+      <%= f.label :username, "Имя" %>
+      <div class="input"><%= f.email_field :username %></div>
+  </div>
 
-  <div><%= f.label :password_confirmation %><br />
-  <%= f.password_field :password_confirmation %></div>
+  <div class="clearfix">
+    <%= f.label :password, "Пароль" %>
+    <div class="input"><%= f.password_field :password %><br /> <i>(оставьте пустым если не хотите менять)</i>
+    </div>
+  </div>
 
-  <div><%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
-  <%= f.password_field :current_password %></div>
+  <div class="clearfix">
+    <%= f.label :password_confirmation, "Подтверждение пароля" %>
+    <div class="input"><%= f.password_field :password_confirmation %></div>
+  </div>
 
-  <div><%= f.submit "Update" %></div>
-<% end %>
+  <div class="clearfix">
+    <%= f.label :current_password,"Текущий пароль" %>
+    <div class="input"><%= f.password_field :current_password %><br /><i>(необходим для подтверждения изменений)</i></div>
+  </div>
 
-<h3>Cancel my account</h3>
+  <div class="clearfix">
+    <div class="input"><%= f.submit "Обновить", :class => "btn success" %> <%= link_to "Вернуться", :back, :class => "btn" %></div>
+  </div>
+  <% end %>
 
-<p>Unhappy? <%= link_to "Cancel my account", registration_path(resource_name), :confirm => "Are you sure?", :method => :delete %>.</p>
+  <hr>
 
-<%= link_to "Back", :back %>
+  <div class="clearfix">
+    <div class="input"><%= link_to "Удалить мою регистрацию", registration_path(resource_name), :confirm => "Вы уверены?", :method => :delete, :class => "btn danger" %>
+    </div>
+  </div>
+  
+</div>

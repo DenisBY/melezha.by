@@ -166,6 +166,7 @@
                 <a href="#" class="dropdown-toggle">User panel</a>
                 <ul class="dropdown-menu">
                   <% if user_signed_in? %>
+                    <li><%= link_to "Профиль", edit_user_registration_path %></li>
                     <li><%= link_to "Выход", destroy_user_session_path, :method => 'delete' %></li>
                   <% else %>
                     <li><a href=<%= new_user_session_path %>>Вход</a></li>
@@ -173,7 +174,8 @@
                   <% end %>
                   <li class="divider"></li>
                   <li>
-                                        <% if user_signed_in? %>
+                    <% if user_signed_in? %>
+                      <%= link_to "Профиль", edit_user_registration_path %>
                       <%= link_to "Выход", destroy_user_session_path, :method => 'delete' %>
                     <% else %>
                       <form action="<%= user_session_path %>" method="post" class="pull-right">
