@@ -64,7 +64,7 @@
 
   <div class="container">
     <div class="content">
-
+<%- if controller_name == 'home' %>
     <div class="page-header" align="center">
       <form id="main-search-form" action=<%= url_for root_path %> method="GET">
         <fieldset>
@@ -79,6 +79,7 @@
         </fieldset>  
       </form>
     </div>
+<% end -%>
 
 <!--     <div align=right>
       <% if user_signed_in? %>
