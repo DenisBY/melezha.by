@@ -1,8 +1,14 @@
 class CompaniesController < ApplicationController
+
+  before_filter :authenticate_user!
+  load_and_authorize_resource
+  check_authorization
+
   # GET /companies
   # GET /companies.json
   def index
-    @companies = Company.all
+    user = User.find(current_user)
+    @companies = user.companies
 
     respond_to do |format|
       format.html # index.html.erb
@@ -41,6 +47,7 @@ class CompaniesController < ApplicationController
   # POST /companies.json
   def create
     @company = Company.new(params[:company])
+    @company.user_id = current_user.id
 
     respond_to do |format|
       if @company.save

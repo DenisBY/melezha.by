@@ -1,21 +1,16 @@
-<h1>Listing companies</h1>
+<div class="span14">
+  <h1>Ваши компании</h1>
 
-<table>
+  <table>
+  <% @companies.each do |company| %>
   <tr>
-    <th></th>
-    <th></th>
-    <th></th>
+      <td><%= company.title %></td>
+      <td><%= link_to 'Редактировать', edit_company_path(company), :class => "btn primary" %></td>
+      <td><%= link_to 'Удалить', company, confirm: 'Вы уверены?', method: :delete, :class => "btn danger" %></td>
   </tr>
+  <% end %>
+  </table>
+  <br />
 
-<% @companies.each do |company| %>
-  <tr>
-    <td><%= link_to 'Show', company %></td>
-    <td><%= link_to 'Edit', edit_company_path(company) %></td>
-    <td><%= link_to 'Destroy', company, confirm: 'Are you sure?', method: :delete %></td>
-  </tr>
-<% end %>
-</table>
-
-<br />
-
-<%= link_to 'New Company', new_company_path %>
+  <div align="right"><%= link_to 'Добавить компанию', new_company_path, :class => "btn success" %></div>
+</div>

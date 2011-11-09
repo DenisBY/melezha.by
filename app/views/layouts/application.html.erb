@@ -2,7 +2,7 @@
 <html>
 <head>
   <title>MelezhaBy</title>
-  <%= stylesheet_link_tag "http://twitter.github.com/bootstrap/1.4.0/bootstrap.min.css", "application" %>
+  <%= stylesheet_link_tag "application", "http://twitter.github.com/bootstrap/1.4.0/bootstrap.min.css" %>
   <%= javascript_include_tag "http://twitter.github.com/bootstrap/1.4.0/bootstrap-dropdown.js",
     "http://twitter.github.com/bootstrap/1.4.0/bootstrap-alerts.js", "application" %>
   <%= csrf_meta_tags %>
@@ -158,7 +158,7 @@
                   <li><a href="#">Another link</a></li>
                 </ul>
               </li>
-              <li><a href=<%= companies_path %>>Компании</a></li>
+              <% if user_signed_in? %><li><a href=<%= companies_path %>>Ваши Компании</a></li><% end %>
               <li><a href="#">Недвижимость</a></li>
               <li><a href="#">О проекте</a></li>
             </ul>

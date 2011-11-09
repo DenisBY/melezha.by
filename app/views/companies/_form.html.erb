@@ -9,9 +9,34 @@
       <% end %>
       </ul>
     </div>
+
   <% end %>
 
-  <div class="actions">
-    <%= f.submit %>
+    <div class="clearfix">
+      <%= f.label :title, "Название компании" %>
+      <div class="input"><%= f.text_field :title, :class => "xxlarge" %></div>
+    </div>
+
+    <div class="clearfix">
+      <%= f.label :overview, "Описание вида деятельности" %>
+      <div class="input"><%= f.text_area :overview, :class => "xxlarge",  :rows => "3" %></div>
+    </div>
+
+    <div class="clearfix">
+      <%= f.label :addr, "Адрес" %>
+      <div class="input"><%= f.text_area :addr, :class => "xxlarge",  :rows => "3" %></div>
+    </div>
+
+    <div class="clearfix">
+      <%= f.label :contact, "Контактные данные" %>
+      <div class="input"><%= f.text_area :contact, :class => "xxlarge",  :rows => "3" %></div>
+    </div>
+
+  <div class="clearfix">
+    <div class="input">
+      <%= f.submit "Отправить", :class => "btn success" %>
+      <%= link_to 'Отмена', companies_path, :class => "btn" %>
+    </div>
   </div>
+
 <% end %>
