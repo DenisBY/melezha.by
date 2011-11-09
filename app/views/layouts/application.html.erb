@@ -2,8 +2,9 @@
 <html>
 <head>
   <title>MelezhaBy</title>
-  <%= stylesheet_link_tag    "application" %>
-  <%= javascript_include_tag "application" %>
+  <%= stylesheet_link_tag "http://twitter.github.com/bootstrap/1.4.0/bootstrap.min.css", "application" %>
+  <%= javascript_include_tag "http://twitter.github.com/bootstrap/1.4.0/bootstrap-dropdown.js",
+    "http://twitter.github.com/bootstrap/1.4.0/bootstrap-alerts.js", "application" %>
   <%= csrf_meta_tags %>
 
 
@@ -157,7 +158,7 @@
                   <li><a href="#">Another link</a></li>
                 </ul>
               </li>
-              <li><a href="#">Компании</a></li>
+              <li><a href=<%= companies_path %>>Компании</a></li>
               <li><a href="#">Недвижимость</a></li>
               <li><a href="#">О проекте</a></li>
             </ul>
