@@ -72,8 +72,8 @@
           <legend align="center">Поиск услуг и компаний</legend>
           <div class="clearfix">
             <div class="input">
-              <% params['search-keywords'].present? ? value=params['search-keywords'] : value="" %>
-              <input class="xxlarge span11" id="xlInput" name="search-keywords" size="100" type="text" placeholder="Например: офисная бумага" value="<%= value %>" >
+              <% params['q'].present? ? value=params['q'] : value="" %>
+              <input class="xxlarge span11" id="xlInput" name="q" size="100" type="text" placeholder="Например: офисная бумага" value="<%= value %>" >
               <button class="btn primary large">Найти</button>
             </div>
           </div><!-- /clearfix -->
@@ -95,7 +95,7 @@
       <% end %>
     </div> -->
 
-      <div class="row">
+      <div class="span10">
         <% if notice %>
           <div class="alert-message success fade in" data-alert="alert">
             <a class="close" href="#">×</a>
@@ -114,7 +114,7 @@
       </div>
     </div>
 
-    <div class="clearfix" align="right">
+<!--     <div class="clearfix" align="right">
       <% if user_signed_in? %>
         <%= link_to "Выход", destroy_user_session_path, :method => 'delete' %>
       <% else %>
@@ -125,7 +125,7 @@
               <a href=<%= new_user_registration_path %> class="btn">Регистрация</a>
             </form>
       <% end %>
-    </div>
+    </div> -->
 
     <div class="row">
       <div class="span5">
@@ -149,7 +149,7 @@
             <h3><a href=<%= root_path %>>Мележа.by</a></h3>
             <ul class="nav">
               <!-- <li class="active"><a href="#">Главная</a></li> -->
-              <li class="dropdown">
+<!--               <li class="dropdown">
                 <a href="#" class="dropdown-toggle">Услуги</a>
                 <ul class="dropdown-menu">
                   <li><a href="#">Secondary link</a></li>
@@ -157,14 +157,23 @@
                   <li class="divider"></li>
                   <li><a href="#">Another link</a></li>
                 </ul>
-              </li>
-              <% if user_signed_in? %><li><a href=<%= companies_path %>>Ваши Компании</a></li><% end %>
-              <li><a href="#">Недвижимость</a></li>
-              <li><a href="#">О проекте</a></li>
+              </li> -->
+              <% if user_signed_in? %><li><a href=<%= companies_path %>>Ваши Компании</a></li><% else %><li><a href=<%= companies_path %>>Добавить Компанию</a></li><% end %>
+<!--               <li><a href="#">Недвижимость</a></li>
+              <li><a href="#">О проекте</a></li> --> 
             </ul>
- <ul class="nav secondary-nav">
+            <ul class="nav secondary-nav">            
+                  <% if user_signed_in? %>
+                    <li><%= link_to "Профиль", edit_user_registration_path %></li>
+                    <li><%= link_to "Выход", destroy_user_session_path, :method => 'delete' %></li>
+                  <% else %>
+                    <li><a href=<%= new_user_session_path %>>Вход</a></li>
+                    <li><a href=<%= new_user_registration_path %>>Регистрация</a></li>
+                  <% end %>
+            </ul>
+<!--             <ul class="nav secondary-nav">
               <li class="dropdown">
-                <a href="#" class="dropdown-toggle">User panel</a>
+                <a href="" class="dropdown-toggle"><% if user_signed_in? %>Выход<% else %>Вход/Регистрация<% end %></a>
                 <ul class="dropdown-menu">
                   <% if user_signed_in? %>
                     <li><%= link_to "Профиль", edit_user_registration_path %></li>
@@ -173,23 +182,9 @@
                     <li><a href=<%= new_user_session_path %>>Вход</a></li>
                     <li><a href=<%= new_user_registration_path %>>Регистрация</a></li>
                   <% end %>
-                  <li class="divider"></li>
-                  <li>
-                    <% if user_signed_in? %>
-                      <%= link_to "Профиль", edit_user_registration_path %>
-                      <%= link_to "Выход", destroy_user_session_path, :method => 'delete' %>
-                    <% else %>
-                      <form action="<%= user_session_path %>" method="post" class="pull-right">
-                        <input class="small" id="user_email" name="user[email]" size="30" type="text" placeholder="e-mail"/>
-                        <input class="small" id="user_password" name="user[password]" size="30" type="password" placeholder="пароль"/>
-                        <button class="btn tiny info">Войти</button>
-                      </form>
-                      <li><a href=<%= new_user_registration_path %> >Регистрация</a></li>
-                    <% end %>
-                  </li>
                 </ul>
               </li>
-            </ul>
+            </ul> -->
           </div>
         </div><!-- /topbar-inner -->
       </div><!-- /topbar -->

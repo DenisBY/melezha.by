@@ -1,10 +1,14 @@
 <div class="span14">
   <h1>Ваши компании</h1>
 
-  <table>
+  <table class="">
   <% @companies.each do |company| %>
   <tr>
-      <td><%= company.title %></td>
+      <td class="span14">
+        <strong><%= company.title %></strong><br />
+        <%= company.overview %>
+
+      </td>
       <td><%= link_to 'Редактировать', edit_company_path(company), :class => "btn primary" %></td>
       <td><%= link_to 'Удалить', company, confirm: 'Вы уверены?', method: :delete, :class => "btn danger" %></td>
   </tr>

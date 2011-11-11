@@ -1,12 +1,17 @@
-<h2>Resend unlock instructions</h2>
+<div class="span10">
+	<h2>Отправить повторно инструкцию по разблокировке</h2>
 
-<%= form_for(resource, :as => resource_name, :url => unlock_path(resource_name), :html => { :method => :post }) do |f| %>
-  <%= devise_error_messages! %>
+	<%= form_for(resource, :as => resource_name, :url => unlock_path(resource_name), :html => { :method => :post }) do |f| %>
+	  <%= devise_error_messages! %>
 
-  <div><%= f.label :email %><br />
-  <%= f.email_field :email %></div>
+	  <div class="clearfix">
+		  <%= f.label :email %>
+		  <div class="input"><%= f.email_field :email %></div>
+	  </div>
 
-  <div><%= f.submit "Resend unlock instructions" %></div>
-<% end %>
+	  <div class="input"><%= f.submit "Resend unlock instructions", :class => "btn success" %></div>
 
-<%= render :partial => "devise/shared/links" %>
+	<% end %>
+
+	<%= render :partial => "devise/shared/links" %>
+</div>
