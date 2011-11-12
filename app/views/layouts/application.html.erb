@@ -3,12 +3,12 @@
 <head>
   <title>MelezhaBy</title>
   <%= stylesheet_link_tag "application", "http://twitter.github.com/bootstrap/1.4.0/bootstrap.min.css" %>
-  <%= javascript_include_tag "http://twitter.github.com/bootstrap/1.4.0/bootstrap-dropdown.js",
-    "http://twitter.github.com/bootstrap/1.4.0/bootstrap-alerts.js", "application" %>
+  <%= javascript_include_tag "http://twitter.github.com/bootstrap/1.4.0/bootstrap-dropdown.js", "http://twitter.github.com/bootstrap/1.4.0/bootstrap-alerts.js", "application" %>
   <%= csrf_meta_tags %>
 
 
     <style type="text/css">
+
       /* Override some defaults */
       html, body {
         background-color: #eee;
@@ -65,37 +65,25 @@
 
   <div class="container">
     <div class="content">
-<%- if controller_name == 'home' %>
-    <div class="page-header" align="center">
-      <form id="main-search-form" action=<%= url_for root_path %> method="GET">
-        <fieldset>
-          <legend align="center">Поиск услуг и компаний</legend>
-          <div class="clearfix">
-            <div class="input">
-              <% params['q'].present? ? value=params['q'] : value="" %>
-              <input class="xxlarge span11" id="xlInput" name="q" size="100" type="text" placeholder="Например: офисная бумага" value="<%= value %>" >
-              <button class="btn primary large">Найти</button>
-            </div>
-          </div><!-- /clearfix -->
-        </fieldset>  
-      </form>
-    </div>
-<% end -%>
 
-<!--     <div align=right>
-      <% if user_signed_in? %>
-        <%= link_to "Выход", destroy_user_session_path, :method => 'delete' %>
-      <% else %>
-            <form action="<%= user_session_path %>" id="user_new" class="user_new" method="post">
-              <input class="small" id="user_email" name="user[email]" size="30" type="text" placeholder="e-mail"/>
-              <input class="small" id="user_password" name="user[password]" size="30" type="password" placeholder="пароль"/>
-              <button class="btn tiny info">Войти</button>
-              <a href=<%= new_user_registration_path %>>Регистрация</a>
+      <%- if controller_name == 'home' %>
+          <div class="page-header" align="center">
+            <form id="main-search-form" action=<%= url_for root_path %> method="GET">
+              <fieldset>
+                <legend align="center">Поиск услуг и компаний</legend>
+                <div class="clearfix">
+                  <div class="input">
+                    <% params['q'].present? ? value=params['q'] : value="" %>
+                    <input class="xxlarge span11" id="xlInput" name="q" size="100" type="text" placeholder="Например: офисная бумага" value="<%= value %>" >
+                    <button class="btn primary large">Найти</button>
+                  </div>
+                </div><!-- /clearfix -->
+              </fieldset>  
             </form>
-      <% end %>
-    </div> -->
+          </div>
+      <% end -%>
 
-      <div class="span10">
+      <div class="row">
         <% if notice %>
           <div class="alert-message success fade in" data-alert="alert">
             <a class="close" href="#">×</a>
@@ -112,20 +100,8 @@
         
         <%= yield %>
       </div>
-    </div>
 
-<!--     <div class="clearfix" align="right">
-      <% if user_signed_in? %>
-        <%= link_to "Выход", destroy_user_session_path, :method => 'delete' %>
-      <% else %>
-            <form action="<%= user_session_path %>" id="user_new" class="user_new" method="post">
-              <input class="small" id="user_email" name="user[email]" size="30" type="text" placeholder="e-mail"/>
-              <input class="small" id="user_password" name="user[password]" size="30" type="password" placeholder="пароль"/>
-              <button class="btn tiny info">Войти</button>
-              <a href=<%= new_user_registration_path %> class="btn">Регистрация</a>
-            </form>
-      <% end %>
-    </div> -->
+    </div>
 
     <div class="row">
       <div class="span5">
@@ -148,19 +124,11 @@
           <div class="container">
             <h3><a href=<%= root_path %>>Мележа.by</a></h3>
             <ul class="nav">
-              <!-- <li class="active"><a href="#">Главная</a></li> -->
-<!--               <li class="dropdown">
-                <a href="#" class="dropdown-toggle">Услуги</a>
-                <ul class="dropdown-menu">
-                  <li><a href="#">Secondary link</a></li>
-                  <li><a href="#">Something else here</a></li>
-                  <li class="divider"></li>
-                  <li><a href="#">Another link</a></li>
-                </ul>
-              </li> -->
-              <% if user_signed_in? %><li><a href=<%= companies_path %>>Ваши Компании</a></li><% else %><li><a href=<%= companies_path %>>Добавить Компанию</a></li><% end %>
-<!--               <li><a href="#">Недвижимость</a></li>
-              <li><a href="#">О проекте</a></li> --> 
+              <% if user_signed_in? %>
+                <li><a href=<%= companies_path %>>Ваши Компании</a></li>
+              <% else %>
+                <li><a href=<%= companies_path %>>Добавить Компанию</a></li>
+              <% end %>
             </ul>
             <ul class="nav secondary-nav">            
                   <% if user_signed_in? %>
@@ -171,20 +139,6 @@
                     <li><a href=<%= new_user_registration_path %>>Регистрация</a></li>
                   <% end %>
             </ul>
-<!--             <ul class="nav secondary-nav">
-              <li class="dropdown">
-                <a href="" class="dropdown-toggle"><% if user_signed_in? %>Выход<% else %>Вход/Регистрация<% end %></a>
-                <ul class="dropdown-menu">
-                  <% if user_signed_in? %>
-                    <li><%= link_to "Профиль", edit_user_registration_path %></li>
-                    <li><%= link_to "Выход", destroy_user_session_path, :method => 'delete' %></li>
-                  <% else %>
-                    <li><a href=<%= new_user_session_path %>>Вход</a></li>
-                    <li><a href=<%= new_user_registration_path %>>Регистрация</a></li>
-                  <% end %>
-                </ul>
-              </li>
-            </ul> -->
           </div>
         </div><!-- /topbar-inner -->
       </div><!-- /topbar -->
