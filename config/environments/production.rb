@@ -15,7 +15,7 @@ MelezhaBy::Application.configure do
   config.assets.compress = true
 
   # Don't fallback to assets pipeline if a precompiled asset is missed
-  config.assets.compile = false
+  config.assets.compile = true
 
   # Generate digests for assets URLs
   config.assets.digest = true
@@ -57,4 +57,22 @@ MelezhaBy::Application.configure do
 
   # Send deprecation notices to registered listeners
   config.active_support.deprecation = :notify
+
+  config.action_mailer.default_url_options = { :host => "melezha.by" }
+
+  config.action_mailer.raise_delivery_errors = true
+  config.action_mailer.perform_deliveries = true
+
+  ActionMailer::Base.delivery_method = :smtp
+
+  ActionMailer::Base.smtp_settings = {
+    :address              => "smtp.gmail.com",
+    :port                 => "587",
+    :tls                  => true,
+    :domain               => "developer.by",
+    :user_name            => "mailrobot@developer.by",
+    :password             => "killpop99",
+    :authentication       => "plain",
+    :enable_starttls_auto => true
+  }
 end
