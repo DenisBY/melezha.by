@@ -65,31 +65,12 @@
 
   <div class="container">
     <div class="content">
-<<<<<<< HEAD
-<%- if controller_name == 'home' %>
-    <div class="page-header" align="center">
-      <form id="main-search-form" action=<%= url_for root_path %> method="GET">
-        <fieldset>
-          <legend align="center">Поиск услуг и компаний на мележа</legend>
-          <div class="clearfix">
-            <div class="input">
-              <% params['q'].present? ? value=params['q'] : value="" %>
-              <input class="xxlarge span11" id="xlInput" name="q" size="100" type="text" placeholder="Например: офисная бумага" value="<%= value %>" >
-              <button class="btn primary large">Найти</button>
-            </div>
-          </div><!-- /clearfix -->
-        </fieldset>  
-      </form>
-    </div>
-<% end -%>
-=======
->>>>>>> c5e84d31eae0465208ae4f2f81360682c7bca96c
 
       <%- if controller_name == 'home' %>
           <div class="page-header" align="center">
             <form id="main-search-form" action=<%= url_for root_path %> method="GET">
               <fieldset>
-                <legend align="center">Поиск услуг и компаний</legend>
+                <legend align="center">Поиск услуг и компаний на улице Мележа</legend>
                 <div class="clearfix">
                   <div class="input">
                     <% params['q'].present? ? value=params['q'] : value="" %>
@@ -103,26 +84,30 @@
       <% end -%>
 
       <div class="row">
-        <% if notice %>
-          <div class="alert-message success fade in" data-alert="alert">
-            <a class="close" href="#">×</a>
-            <%= notice %>
-          </div>
-        <% end %>
 
-        <% if alert %>
-          <div class="alert-message warning fade in" data-alert="alert">
-            <a class="close" href="#">×</a>
-            <%= alert %>
-          </div>
-        <% end %>
+        <div class="span14" align="center">
+          <% if notice %>
+            <div class="alert-message success fade in" data-alert="alert">
+              <a class="close" href="#">×</a>
+              <%= notice %>
+            </div>
+          <% end %>
+
+          <% if alert %>
+            <div class="alert-message warning fade in" data-alert="alert">
+              <a class="close" href="#">×</a>
+              <%= alert %>
+            </div>
+          <% end %>
+        </div>
+
         
         <%= yield %>
       </div>
 
     </div>
 
-    <div class="row">
+<!--     <div class="row">
       <div class="span5">
         <h4>Ссылки</h4>
       </div>
@@ -130,10 +115,10 @@
         <h4>Ссылки</h4>
       </div>
     </div>
-    
     <footer>
       Company name
-    </footer>
+    </footer> -->
+
   </div>
 
   <!-- Top menu START -->
