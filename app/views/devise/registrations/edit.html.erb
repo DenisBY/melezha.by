@@ -5,13 +5,13 @@
     <%= devise_error_messages! %>
 
   <div class="clearfix">
-    <%= f.label :email, "Электронная почта" %>
-    <div class="input"><%= f.email_field :email %></div>
+      <%= f.label :username, "Имя" %>
+      <div class="input"><%= f.email_field :username %></div>
   </div>
 
   <div class="clearfix">
-      <%= f.label :username, "Имя" %>
-      <div class="input"><%= f.email_field :username %></div>
+    <%= f.label :email, "Электронная почта" %>
+    <div class="input"><%= f.email_field :email %></div>
   </div>
 
   <div class="clearfix">
@@ -23,6 +23,11 @@
   <div class="clearfix">
     <%= f.label :password_confirmation, "Подтверждение пароля" %>
     <div class="input"><%= f.password_field :password_confirmation %></div>
+  </div>
+
+  <div class="clearfix">
+      <%= f.label :news, "Получать новости сайта" %>
+      <div class="input"><%= f.check_box :news %></div>
   </div>
 
   <div class="clearfix">

@@ -14,22 +14,56 @@
 
     <div class="clearfix">
       <%= f.label :title, "Название компании" %>
-      <div class="input"><%= f.text_field :title, :class => "xxlarge" %></div>
+      <div class="input"><%= f.text_field :title, :class => "xxlarge", :placeholder => "например: ООО \"Моя компания\"" %></div>
     </div>
 
     <div class="clearfix">
       <%= f.label :overview, "Описание" %>
-      <div class="input"><%= f.text_area :overview, :class => "xxlarge",  :rows => "3" %></div>
+      <div class="input"><%= f.text_area :overview, :class => "xxlarge",  :rows => "3", :placeholder => "например: вывоз мусора, уборка офисов, инвестиции" %></div>
     </div>
 
     <div class="clearfix">
       <%= f.label :addr, "Адрес" %>
-      <div class="input"><%= f.text_area :addr, :class => "xxlarge",  :rows => "3" %></div>
+      <div class="input"><%= f.text_area :addr, :class => "xxlarge",  :rows => "3", :placeholder => "например: Мележа 1-1001" %></div>
     </div>
 
     <div class="clearfix">
-      <%= f.label :contact, "Контактные данные" %>
-      <div class="input"><%= f.text_area :contact, :class => "xxlarge",  :rows => "3" %></div>
+      <%= f.label :tel, "Телефон" %>
+      <div class="input">
+        <%= f.phone_field :tel, :class => "xxlarge", :placeholder => "например: +375 17 123-45-67, (017) 123-45-67", :title => "Номер(а) телефона(ов)" %>
+      </div>
+    </div>
+
+    <div class="clearfix">
+      <%= f.label :fax, "Факс" %>
+      <div class="input">
+        <%= f.phone_field :fax, :class => "xxlarge", :placeholder => "например: +375 17 123-45-67, (017) 123-45-67", :title => "Номер(а) факса(ов)" %>
+      </div>
+    </div>
+
+    <div class="clearfix">
+      <%= f.label :email, "Электронная почта" %>
+      <div class="input">
+        <%= f.email_field :email, :class => "xxlarge", :placeholder => "например: info@example.by", :title => "Адрес электронной почты для связи. Виден всем." %>
+      </div>
+    </div>
+
+    <div class="clearfix">
+      <%= f.label :site, "Сайт" %>
+      <% @company.site? ? val=@company.site : val="http://" %>
+      <div class="input">
+        <%= f.url_field :site, :class => "xxlarge", :placeholder => "например: http://example.by", :title => "Адрес сайта должен начинаться с http:// или https://" %>
+      </div>
+    </div>
+
+    <div class="clearfix">
+      <%= f.label :skype, "Skype" %>
+      <div class="input"><%= f.text_field :skype, :class => "xxlarge", :placeholder => "например: echo123", :title => "Skype" %></div>
+    </div>
+
+    <div class="clearfix">
+      <%= f.label :icq, "ICQ" %>
+      <div class="input"><%= f.text_field :icq, :class => "xxlarge", :placeholder => "например: 123-456-789 или 123456789", :title => "Номер ICQ" %></div>
     </div>
 
   <div class="clearfix">

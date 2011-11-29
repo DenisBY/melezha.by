@@ -25,6 +25,11 @@
   </div>
 
   <div class="clearfix">
+      <%= f.label :news, "Получать новости сайта" %>
+      <div class="input"><%= f.check_box :news %></div>
+  </div>
+
+  <div class="clearfix">
     <div class="input"><%= f.submit "Зарегистрироваться", :class => "btn success" %> <%= link_to "Отмена", :back, :class => "btn" %></div>
   </div>
   <% end %>

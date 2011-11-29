@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111109154456) do
+ActiveRecord::Schema.define(:version => 20111129145024) do
 
   create_table "addresses", :force => true do |t|
     t.string   "address"
@@ -31,14 +31,26 @@ ActiveRecord::Schema.define(:version => 20111109154456) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "user_id"
+    t.string   "tel"
+    t.string   "site"
+    t.string   "skype"
+    t.string   "icq"
+    t.string   "fax"
+    t.string   "email"
+  end
+
+  create_table "contact_types", :force => true do |t|
+    t.string   "contact_type"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "contacts", :force => true do |t|
-    t.string   "type_contact"
     t.string   "value"
     t.integer  "company_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "contact_type_id"
   end
 
   add_index "contacts", ["company_id"], :name => "index_contacts_on_company_id"
@@ -78,8 +90,8 @@ ActiveRecord::Schema.define(:version => 20111109154456) do
   add_index "services", ["company_id"], :name => "index_services_on_company_id"
 
   create_table "users", :force => true do |t|
-    t.string   "email",                                 :default => "", :null => false
-    t.string   "encrypted_password",     :limit => 128, :default => "", :null => false
+    t.string   "email",                                 :default => "",   :null => false
+    t.string   "encrypted_password",     :limit => 128, :default => "",   :null => false
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
@@ -94,6 +106,7 @@ ActiveRecord::Schema.define(:version => 20111109154456) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "username"
+    t.boolean  "news",                                  :default => true
   end
 
   add_index "users", ["confirmation_token"], :name => "index_users_on_confirmation_token", :unique => true

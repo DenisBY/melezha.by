@@ -1,13 +1,12 @@
 <div class="span14">
 
+  <% unless @companies.present? %>
 
-<% unless @companies.present? %>
+    <% if params['q'].present? %>
+    К сожалению ничего не найдено. Если это ваш бизнес, то вы можете <%= link_to "добавить вашу Компанию", companies_path %>.
+    <% end %>
 
-  <% if params['q'].present? %>
-  К сожалению ничего не найдено. Если это ваш бизнес, то вы можете <%= link_to "добавить вашу Компанию", companies_path %>.
-  <% end %>
-
-  <div class="list-top-query" id="list-top-query">
+    <div class="list-top-query" id="list-top-query">
       <h5>Примеры запросов:</h5>
       <ul>
         <li><a href="/?q=Офисная+бумага">Офисная бумага</a></li>
@@ -23,15 +22,21 @@
         <li><a href="/?q=Продвижение">Продвижение</a></li>
 
       </ul><!-- / -->
-  </div>
-<% end %>
+    </div>
+  <% end %>
+
   <% if @companies.present? %>
     <% @companies.each do |company| %>
-       <h3><%= company.title %></h3>
-      <p> <%= company.overview %><br />
+      <h3><%= company.title %></h3>
+          <%= simple_format(company.overview) %><br />
           <%= company.addr %><br />
-          <%= company.contact%>
-      </p>
+          <% if company.tel.present? %>Телефон: <%= company.tel %><br /><% end %>
+          <% if company.fax.present? %>Факс: <%= company.fax %><br /><% end %>
+          <% if company.email.present? %>e-mail: <%= link_to company.email, "mailto:"+company.email %><br /><% end %>
+          <% if company.site.present? %>Сайт: <%= link_to company.site, company.site %><br /><% end %>
+          <% if company.skype.present? %>Skype: <%= company.skype %><br /><% end %>
+          <% if company.icq.present? %>ICQ: <%= company.icq %><% end %>
+      <hr>
     <% end %>
   <% end %>
 </div>
