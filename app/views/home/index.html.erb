@@ -28,7 +28,7 @@
   <% if @companies.present? %>
     <% @companies.each do |company| %>
       <h3><%= company.title %></h3>
-          <%= simple_format(company.overview) %><br />
+          <%= simple_format(company.overview) %>
           <%= company.addr %><br />
           <% if company.tel.present? %>Телефон: <%= company.tel %><br /><% end %>
           <% if company.fax.present? %>Факс: <%= company.fax %><br /><% end %>
