@@ -66,13 +66,14 @@ MelezhaBy::Application.configure do
   ActionMailer::Base.delivery_method = :smtp
 
   ActionMailer::Base.smtp_settings = {
-    :address              => "smtp.gmail.com",
-    :port                 => "587",
-    :tls                  => true,
-    :domain               => "developer.by",
-    :user_name            => "mailrobot@developer.by",
-    :password             => "killpop99",
-    :authentication       => "plain",
-    :enable_starttls_auto => true
+    :address              => "localhost",
+    :port                 => "25"
+#    :tls                  => true,
+#    :domain               => "developer.by",
+#    :user_name            => "mailrobot@developer.by",
+#    :password             => "killpop99",
+#    :authentication       => "plain",
+#    :enable_starttls_auto => true
+
   }
 end
