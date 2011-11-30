@@ -109,17 +109,15 @@
 
     </div>
 
-<!--     <div class="row">
+<!--      <div class="row">
       <div class="span5">
         <h4>Ссылки</h4>
       </div>
-      <div class="span5">
-        <h4>Ссылки</h4>
-      </div>
-    </div>
+    </div> -->
     <footer>
-      Company name
-    </footer> -->
+      <div class="span6">Сделано с помощью: <a href="http://rubyonrails.org/">Ruby on Rails</a>, <a href="http://twitter.github.com/bootstrap/">Bootstrap</a></div>
+      <div class="span6" align="right">Контакт: <%= mail_to "melezha@melezha.by", "melezha@melezha.by", :encode => "javascript" %></div>
+    </footer>
 
   </div>
 
@@ -128,7 +126,7 @@
       <div class="topbar" data-dropdown="dropdown">
         <div class="topbar-inner">
           <div class="container">
-            <h3><a href=<%= root_path %>>Мележа.by</a></h3>
+            <h3><a href=<%= root_path %>>Мележа.by<sup>beta</sup></a></h3>
             <ul class="nav">
               <% if user_signed_in? %>
                 <li><a href=<%= companies_path %>>Ваши Компании</a></li>
