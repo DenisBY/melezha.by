@@ -19,7 +19,7 @@
 
     <div class="clearfix">
       <%= f.label :overview, "Описание" %>
-      <div class="input"><%= f.text_area :overview, :class => "xxlarge",  :rows => "3", :placeholder => "например: вывоз мусора, уборка офисов, инвестиции" %></div>
+      <div class="input"><%= f.text_area :overview, :class => "xxlarge", :placeholder => "например: вывоз мусора, уборка офисов, инвестиции" %></div>
     </div>
 
     <div class="clearfix">
@@ -44,7 +44,7 @@
     <div class="clearfix">
       <%= f.label :email, "Электронная почта" %>
       <div class="input">
-        <%= f.email_field :email, :class => "xxlarge", :placeholder => "например: info@example.by", :title => "Адрес электронной почты для связи. Виден всем." %>
+        <%= f.email_field :email, :class => "xxlarge", :placeholder => "например: info@melezha.by", :title => "Адрес электронной почты для связи. Виден всем." %>
       </div>
     </div>
 
@@ -52,7 +52,7 @@
       <%= f.label :site, "Сайт" %>
       <% @company.site? ? val=@company.site : val="http://" %>
       <div class="input">
-        <%= f.url_field :site, :class => "xxlarge", :placeholder => "например: http://example.by", :title => "Адрес сайта должен начинаться с http:// или https://" %>
+        <%= f.url_field :site, :class => "xxlarge", :placeholder => "например: http://melezha.by", :title => "Адрес сайта должен начинаться с http:// или https://" %>
       </div>
     </div>
 

@@ -9,16 +9,19 @@
     <div class="list-top-query" id="list-top-query">
       <h5>Примеры запросов:</h5>
       <ul>
-        <li><a href="/?q=бумага">Бумага</a></li>
+        <li><a href="/?q=офисная+бумага">Офисная бумага</a></li>
         <li><a href="/?q=Подключение+к+сети+Интернет">Подключение к сети Интернет</a></li>
         <li><a href="/?q=Заправка+картриджей">Заправка картриджей</a></li>
         <li><a href="/?q=Бухгалтерия">Бухгалтерские услуги</a></li>
-        <li><a href="/?q=Кафе">Кафе</a></li>
-        <li><a href="/?q=Ресторан">Ресторан</a></li>
+        <li><a href="/?q=Кафе">Кафе</a>, <a href="/?q=Ресторан">Ресторан</a></li>
+        <li><a href="/?q=Продукты">Продукты</a>, <a href="/?q=Аптека">Аптека</a></li>
         <li><a href="/?q=Компьютеры">Компьютеры</a></li>
-        <li><a href="/?q=Разработка+сайтов">Разработка сайтов</a></li>
-        <li><a href="/?q=Продвижение">Продвижение</a></li>
-
+        <li><a href="/?q=Разработка+сайтов">Разработка сайтов</a>, <a href="/?q=Продвижение+сайтов">Продвижение сайтов</a></li>
+        <li><a href="/?q=сниму+офис">сниму офис</a>,
+            <a href="/?q=сдам+офис">сдам офис</a>, 
+            <a href="/?q=куплю+офис">куплю офис</a>, 
+            <a href="/?q=продам+офис">продам офис</a>
+        </li>
       </ul><!-- / -->
     </div>
   <% end %>
@@ -27,10 +30,10 @@
     <% @companies.each do |company| %>
       <h3><%= company.title %></h3>
           <%= simple_format(company.overview) %>
-          <%= company.addr %><br />
+          <% if company.addr.present? %>Адрес: <%= company.addr %><br /><% end %>
           <% if company.tel.present? %>Телефон: <%= company.tel %><br /><% end %>
           <% if company.fax.present? %>Факс: <%= company.fax %><br /><% end %>
-          <% if company.email.present? %>e-mail: <%= link_to company.email, "mailto:"+company.email %><br /><% end %>
+          <% if company.email.present? %>Электронная почта: <%= mail_to company.email, nil, :encode => "javascript" %><br /><% end %>
           <% if company.site.present? %>Сайт: <%= link_to company.site, company.site %><br /><% end %>
           <% if company.skype.present? %>Skype: <%= company.skype %><br /><% end %>
           <% if company.icq.present? %>ICQ: <%= company.icq %><% end %>
