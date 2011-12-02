@@ -5,10 +5,15 @@
  *= require_self
  *= require_tree . 
 */
+
+
 body { padding-top: 60px !important;}
 
 #main-search-form { position: relative; margin: 00px auto 0 -150px;}
 #page { padding: 64px 0 0 0; }
 
 #list-top-query { margin: 0 0 0 -22px; }
+#list-top-query ul li {  list-style:none; line-height: 24px;}
 #list-top-query h5 { margin: 0 0 0 24px; }
+.logo_for_edit { margin: 0 0 10px 140px; }
+.main-input-search { font-size: 16px; padding: 8px 9px 10px 9px;}

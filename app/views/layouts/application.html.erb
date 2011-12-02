@@ -74,7 +74,7 @@
                 <div class="clearfix">
                   <div class="input">
                     <% params['q'].present? ? value=params['q'] : value="" %>
-                    <input class="xxlarge span11" id="xlInput" name="q" size="100" type="text" placeholder="Например: офисная бумага" value="<%= value %>" >
+                    <input class="xxlarge span11 main-input-search" id="xlInput" name="q" size="100" type="text" placeholder="Например: офисная бумага" value="<%= value %>" >
                     <button class="btn primary large">Найти</button>
                   </div>
                 </div><!-- /clearfix -->
@@ -108,12 +108,6 @@
       </div>
 
     </div>
-
-<!--      <div class="row">
-      <div class="span5">
-        <h4>Ссылки</h4>
-      </div>
-    </div> -->
     <footer>
       <div class="span6">Сделано с помощью: <a href="http://rubyonrails.org/">Ruby on Rails</a>, <a href="http://twitter.github.com/bootstrap/">Bootstrap</a></div>
       <div class="span6" align="right">Контакт: <%= mail_to "melezha@melezha.by", "melezha@melezha.by", :encode => "javascript" %></div>

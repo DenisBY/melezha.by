@@ -6,6 +6,7 @@
   <tr>
       <td class="span14">
         <strong><%= company.title %></strong><br />
+        <%= image_tag company.logo(:medium)%>
         <%= simple_format(company.overview) %>
 
       </td>

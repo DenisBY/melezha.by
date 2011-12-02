@@ -29,6 +29,7 @@
   <% if @companies.present? %>
     <% @companies.each do |company| %>
       <h3><%= company.title %></h3>
+          <% if company.logo? %><%= image_tag company.logo(:medium) %><br /><% end %>
           <%= simple_format(company.overview) %>
           <% if company.addr.present? %>Адрес: <%= company.addr %><br /><% end %>
           <% if company.tel.present? %>Телефон: <%= company.tel %><br /><% end %>

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111129145024) do
+ActiveRecord::Schema.define(:version => 20111202111148) do
 
   create_table "addresses", :force => true do |t|
     t.string   "address"
@@ -27,7 +27,6 @@ ActiveRecord::Schema.define(:version => 20111129145024) do
     t.string   "title"
     t.text     "overview"
     t.text     "addr"
-    t.text     "contact"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "user_id"
@@ -37,14 +36,24 @@ ActiveRecord::Schema.define(:version => 20111129145024) do
     t.string   "icq"
     t.string   "fax"
     t.string   "email"
+    t.string   "logo_file_name"
+    t.string   "logo_content_type"
+    t.integer  "logo_file_size"
+    t.datetime "logo_updated_at"
+  end
+
+  create_table "contact_types", :force => true do |t|
+    t.string   "contact_type"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "contacts", :force => true do |t|
-    t.string   "type_contact"
     t.string   "value"
     t.integer  "company_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "contact_type_id"
   end
 
   add_index "contacts", ["company_id"], :name => "index_contacts_on_company_id"
