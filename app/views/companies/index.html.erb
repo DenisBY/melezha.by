@@ -6,9 +6,8 @@
   <tr>
       <td class="span14">
         <strong><%= company.title %></strong><br />
-        <%= image_tag company.logo(:medium)%>
+        <% if company.logo? %><%= image_tag company.logo%><% end %>
         <%= simple_format(company.overview) %>
-
       </td>
       <td><%= link_to 'Редактировать', edit_company_path(company), :class => "btn primary" %></td>
       <td><%= link_to 'Удалить', company, confirm: 'Вы уверены?', method: :delete, :class => "btn danger" %></td>

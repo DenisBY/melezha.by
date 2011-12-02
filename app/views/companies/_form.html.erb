@@ -17,12 +17,17 @@
       <div class="input"><%= f.text_field :title, :class => "xxlarge", :placeholder => "например: ООО \"Моя компания\"" %></div>
     </div>
 
+    <%- unless @company.new_record? || !@company.logo? -%>
+      <div class="clearfix">          
+        <div class="logo_for_edit">
+          <%= image_tag(@company.logo.url, :alt => 'Logo', :title => 'Логотип') %><br />
+        </div>
+          <%= f.label(:delete_logo, 'Удалить логотип') %>
+          <div class="input"><%= f.check_box(:delete_logo) %></div>
+      </div>
+    <%- end -%>
+
     <div class="clearfix">
-      <div class="logo_for_edit">
-        <% if @company.logo.present? %>
-          <%= image_tag @company.logo(:medium)%>
-        <% end %>
-      </div>    
       <label for="fileInput">Логотип компании</label>
       <div class="input">
         <%= f.file_field :logo, :class => "input-file", :id =>"fileInput" %>

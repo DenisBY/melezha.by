@@ -64,6 +64,8 @@ class CompaniesController < ApplicationController
   # PUT /companies/1.json
   def update
     @company = Company.find(params[:id])
+    # if params[:logo[rm_logo]] == true
+    # end
 
     respond_to do |format|
       if @company.update_attributes(params[:company])
@@ -87,4 +89,5 @@ class CompaniesController < ApplicationController
       format.json { head :ok }
     end
   end
+
 end
