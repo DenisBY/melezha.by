@@ -7,12 +7,10 @@ class HomeController < ApplicationController
   		@companies = Company.search query, :star => true, :match_mode => :extended
 		# @companies = @search.results
 
-  	else
-
-  		@companies_last = Company.limit(8).order('id desc')
-  	
   	end
   	  	
+  	@companies_last = Company.limit(8).order('id desc')
+
   end
 
 end
