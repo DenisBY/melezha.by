@@ -1,6 +1,10 @@
 <div class="span14">
-	<% @companies_all.each do |company| %>
-       	<a href="/?q=<%= h(company.title) %>"><%= company.title %></a><br>
-    <% end %>
+		<table>
+		<% @companies_all.each do |company| %>
+			<tr>
+	       		<td><a href="/?q=<%= h(company.title) %>"><%= company.title %></a></td>
+	       	</tr>
+	    <% end %>
+	    </table>
     Всего компаний: <%= @companies_total.id %>
 </div>

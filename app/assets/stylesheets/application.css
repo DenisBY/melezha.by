@@ -15,5 +15,6 @@ body { padding-top: 60px !important; font-family: Arial !important; }
 #list-top-query { margin: 0 0 0 -22px; }
 #list-top-query ul li {  list-style:none; line-height: 20px;}
 #list-top-query h5 { margin: 0 0 0 24px; }
+.list { line-height: 20px;}
 .logo_for_edit { margin: 0 0 10px 140px; }
 .main-input-search { font-size: 16px; padding: 8px 9px 10px 9px;}
