@@ -6,6 +6,8 @@ MelezhaBy::Application.routes.draw do
 
   resources :companies
 
+  match 'list' => 'list#list'
+
   devise_for :users
 
   match 'search' => 'search#index'
