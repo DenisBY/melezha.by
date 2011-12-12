@@ -35,7 +35,7 @@
           <% @companies_last.each do |company_last| %>
             <li><a href="/?q=<%= h(company_last.title) %>"><%= company_last.title %></a><br></li>
           <% end %>
-          <strong><%= link_to "Все Компании >>", list_path %></strong>
+          <li><strong><%= link_to "Все Компании >>", list_path %></strong></li>
         </ul>
 
       </div>
