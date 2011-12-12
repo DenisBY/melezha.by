@@ -6,6 +6,11 @@ class HomeController < ApplicationController
   		query = params['q']
   		@companies = Company.search query, :star => true, :match_mode => :extended
 		# @companies = @search.results
+
+  	else
+
+  		@companies_last = Company.limit(9).order('id desc')
+  	
   	end
   	  	
   end
