@@ -9,7 +9,7 @@ class HomeController < ApplicationController
 
   	else
 
-  		@companies_last = Company.limit(9).order('id desc')
+  		@companies_last = Company.limit(8).order('id desc')
   	
   	end
   	  	
