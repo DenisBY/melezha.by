@@ -1,10 +1,13 @@
 <div class="span14">
-		<table>
+		<table class="zebra-striped condensed-table">
+		<tbody>
 		<% @companies_all.each do |company| %>
 			<tr>
-	       		<td><a href="/?q=<%= h(company.title) %>"><%= company.title %></a></td>
+	       		<td><a href="/?q=<%= html_escape(company.title) %>"><%= company.title %></a></td>
+	       		<td title="<%= strip_tags(company.overview) %>"><%= strip_tags(truncate(company.overview, :length => 75)) %></td>
 	       	</tr>
 	    <% end %>
+	    </tbody>
 	    </table>
     <strong>Всего Компаний:</strong> <%= @companies_total.id %>
 </div>
