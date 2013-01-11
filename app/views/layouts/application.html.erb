@@ -78,6 +78,7 @@
                     <button class="btn primary large">Найти</button>
                   </div>
                 </div><!-- /clearfix -->
+                <div>При поиске можно использовать логические операторы: | - или, например 'кафе | ресторан'</div>
               </fieldset>  
             </form>
           </div>
@@ -134,7 +135,13 @@
       <div class="topbar" data-dropdown="dropdown">
         <div class="topbar-inner">
           <div class="container">
-            <h3><a href=<%= root_path %>>Мележа.by<sup>beta</sup></a></h3>
+            <h3><a href=<%= root_path %>>
+                  Мележа.by
+                  <sup><font color="red" style="font-weight: bold;">
+                    Продается!
+                    </font></sup>
+                </a>
+            </h3>
             <ul class="nav">
               <% if user_signed_in? %>
                 <li><a href=<%= companies_path %>>Ваши Компании</a></li>
