@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="ru">
 <head>
   <title>Мележа.by</title>
   <%= stylesheet_link_tag "application" %>
@@ -68,19 +68,19 @@
 
       <%- if controller_name == 'home' %>
           <div class="page-header" align="center">
-            <form id="main-search-form" action=<%= url_for root_path %> method="GET">
               <fieldset>
                 <legend align="center">Поиск услуг, товаров и Компаний на улице Мележа</legend>
                 <div class="clearfix">
-                  <div class="input">
-                    <% params['q'].present? ? value=params['q'] : value="" %>
-                    <input class="xxlarge span11 main-input-search" id="xlInput" name="q" size="100" type="text" placeholder="Например: офисная бумага" value="<%= value %>" >
-                    <button class="btn primary large">Найти</button>
-                  </div>
-                </div><!-- /clearfix -->
-                <div>При поиске можно использовать логические операторы: | - или, например 'кафе | ресторан'</div>
-              </fieldset>  
-            </form>
+                  <form id="main-search-form" action=<%= url_for root_path %> method="GET">
+                    <div class="input">
+                      <% params['q'].present? ? value=params['q'] : value="" %>
+                      <input class="xxlarge span11 main-input-search" id="xlInput" name="q" size="100" type="text" placeholder="Например: офисная бумага" value="<%= value %>" >
+                      <button class="btn primary large">Найти</button>
+                    </div>
+                  </form>
+                </div>
+              </fieldset>
+                    <%= tips.tip_text %>
           </div>
       <% end -%>
 
@@ -109,6 +109,7 @@
       </div>
 
     </div>
+
     <footer>
     <div class="row">
       <div class="span6">
