@@ -43,18 +43,12 @@ ActiveRecord::Schema.define(:version => 20111202111148) do
     t.datetime "logo_updated_at"
   end
 
-  create_table "contact_types", :force => true do |t|
-    t.string   "contact_type"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
   create_table "contacts", :force => true do |t|
+    t.string   "type_contact"
     t.string   "value"
     t.integer  "company_id"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "contact_type_id"
   end
 
   add_index "contacts", ["company_id"], :name => "index_contacts_on_company_id"
