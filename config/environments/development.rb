@@ -36,12 +36,13 @@ MelezhaBy::Application.configure do
   ActionMailer::Base.delivery_method = :smtp
 
   ActionMailer::Base.smtp_settings = {
-    :address              => "smtp.gmail.com",
-    :port                 => "587",
+    :address              => "mail.torrents.of.by",
+    :port                 => "25",
+    :openssl_verify_mode  => 'none',
     :tls                  => true,
     :domain               => "developer.by",
-    :user_name            => "mailrobot@developer.by",
-    :password             => "killpop99",
+    :user_name            => "denis%torrents.of.by",
+    :password             => "linux2linux",
     :authentication       => "plain",
     :enable_starttls_auto => true
   }  
