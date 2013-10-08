@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="ru">
 <head>
   <title>Мележа.by</title>
   <%= stylesheet_link_tag "application" %>
@@ -68,18 +68,19 @@
 
       <%- if controller_name == 'home' %>
           <div class="page-header" align="center">
-            <form id="main-search-form" action=<%= url_for root_path %> method="GET">
               <fieldset>
                 <legend align="center">Поиск услуг, товаров и Компаний на улице Мележа</legend>
                 <div class="clearfix">
-                  <div class="input">
-                    <% params['q'].present? ? value=params['q'] : value="" %>
-                    <input class="xxlarge span11 main-input-search" id="xlInput" name="q" size="100" type="text" placeholder="Например: офисная бумага" value="<%= value %>" >
-                    <button class="btn primary large">Найти</button>
-                  </div>
-                </div><!-- /clearfix -->
-              </fieldset>  
-            </form>
+                  <form id="main-search-form" action=<%= url_for root_path %> method="GET">
+                    <div class="input">
+                      <% params['q'].present? ? value=params['q'] : value="" %>
+                      <input class="xxlarge span11 main-input-search" id="xlInput" name="q" size="100" type="text" placeholder="Например: офисная бумага" value="<%= value %>" >
+                      <button class="btn primary large">Найти</button>
+                    </div>
+                  </form>
+                </div>
+              </fieldset>
+                    <%= tips.tip_text %>
           </div>
       <% end -%>
 
@@ -108,6 +109,7 @@
       </div>
 
     </div>
+
     <footer>
     <div class="row">
       <div class="span6">
@@ -134,7 +136,13 @@
       <div class="topbar" data-dropdown="dropdown">
         <div class="topbar-inner">
           <div class="container">
-            <h3><a href=<%= root_path %>>Мележа.by<sup>beta</sup></a></h3>
+            <h3><a href=<%= root_path %>>
+                  Мележа.by
+                  <sup><font color="red" style="font-weight: bold;">
+                    Продается!
+                    </font></sup>
+                </a>
+            </h3>
             <ul class="nav">
               <% if user_signed_in? %>
                 <li><a href=<%= companies_path %>>Ваши Компании</a></li>
@@ -194,6 +202,34 @@ reformal_wdg_bimage = "7688f5685f7701e97daa5497d3d9c745.png";
 
 <script type="text/javascript" language="JavaScript" src="http://reformal.ru/tab6.js?charset=utf-8"></script><noscript><a href="http://melezhaby.reformal.ru">Мележа.by feedback </a> <a href="http://reformal.ru"><img 
 src="http://reformal.ru/i/logo.gif" /></a></noscript>
+
+<!-- Yandex.Metrika counter -->
+<script type="text/javascript">
+(function (d, w, c) {
+    (w[c] = w[c] || []).push(function() {
+        try {
+            w.yaCounter19340209 = new Ya.Metrika({id:19340209,
+                    webvisor:true,
+                    clickmap:true,
+                    trackLinks:true,
+                    accurateTrackBounce:true});
+        } catch(e) { }
+    });
+
+    var n = d.getElementsByTagName("script")[0],
+        s = d.createElement("script"),
+        f = function () { n.parentNode.insertBefore(s, n); };
+    s.type = "text/javascript";
+    s.async = true;
+    s.src = (d.location.protocol == "https:" ? "https:" : "http:") + "//mc.yandex.ru/metrika/watch.js";
+
+    if (w.opera == "[object Opera]") {
+        d.addEventListener("DOMContentLoaded", f, false);
+    } else { f(); }
+})(document, window, "yandex_metrika_callbacks");
+</script>
+<noscript><div><img src="//mc.yandex.ru/watch/19340209" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+<!-- /Yandex.Metrika counter -->
 
 </body>
 </html>
