@@ -47,8 +47,9 @@ gem 'rails_admin', :git => 'git://github.com/sferik/rails_admin.git'
 
 # gem 'sunspot_rails'
 
-gem 'thinking-sphinx',
-  :git     => 'git://github.com/freelancing-god/thinking-sphinx.git',
-  :branch  => 'rails3'
+gem 'thinking-sphinx', '2.0.10'
+#gem 'thinking-sphinx',
+#  :git     => 'git://github.com/pat/thinking-sphinx.git',
+#  :branch  => 'rails3'
   
 gem "paperclip", "~> 2.4"  
