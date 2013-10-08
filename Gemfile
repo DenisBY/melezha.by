@@ -1,6 +1,6 @@
 source 'http://rubygems.org'
 
-gem 'rails', '3.1.1'
+gem 'rails', '3.1.11'
 
 # Bundle edge Rails instead:
 # gem 'rails',     :git => 'git://github.com/rails/rails.git'
@@ -23,6 +23,8 @@ gem 'jquery-rails'
 
 # Use unicorn as the web server
 # gem 'unicorn'
+
+gem 'thin'
 
 # Deploy with Capistrano
 # gem 'capistrano'
