@@ -53,3 +53,5 @@ gem 'thinking-sphinx', '2.0.10'
 #  :branch  => 'rails3'
   
 gem "paperclip", "~> 2.4"  
+
+gem 'thin'
