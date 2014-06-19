@@ -1,6 +1,5 @@
 source 'http://rubygems.org'
 
-<<<<<<< HEAD
 gem 'rails', '3.1.11'
 
 # Bundle edge Rails instead:
