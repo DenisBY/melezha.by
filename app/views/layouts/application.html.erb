@@ -80,7 +80,9 @@
                   </form>
                 </div>
               </fieldset>
-                    <%= tips.tip_text %>
+                    <%- if !tips.nil? %>
+                      <%= tips.tip_text %>
+                    <% end %>
           </div>
       <% end -%>
 
@@ -138,9 +140,9 @@
           <div class="container">
             <h3><a href=<%= root_path %>>
                   Мележа.by
-                  <sup><font color="red" style="font-weight: bold;">
+<!--                   <sup><font color="red" style="font-weight: bold;">
                     Продается!
-                    </font></sup>
+                    </font></sup> -->
                 </a>
             </h3>
             <ul class="nav">

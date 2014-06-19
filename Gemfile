@@ -17,6 +17,8 @@ group :assets do
   gem 'uglifier', '>= 1.0.3'
 end
 
+gem 'thin'
+
 gem 'jquery-rails'
 
 # To use ActiveModel has_secure_password
@@ -53,3 +55,5 @@ gem 'thinking-sphinx', '2.0.10'
 #  :branch  => 'rails3'
   
 gem "paperclip", "~> 2.4"  
+
+gem 'thin'
