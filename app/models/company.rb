@@ -6,12 +6,7 @@ class Company < ActiveRecord::Base
 
   has_attached_file :logo, :styles => { :medium => "#x82" }
 
-	define_index do
-		indexes :title, :sortable => true
-		indexes :overview
-		has created_at, updated_at
-	end
-  
+ 
   before_validation :clear_logo
 
   def delete_logo=(value)

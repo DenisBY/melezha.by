@@ -1,6 +1,6 @@
 source 'http://rubygems.org'
 
-gem 'rails', '3.1.12'
+gem 'rails', '4.1.1'
 
 # Bundle edge Rails instead:
 # gem 'rails',     :git => 'git://github.com/rails/rails.git'
@@ -10,11 +10,11 @@ gem 'mysql2'
 
 # Gems used only for assets and not required
 # in production environments by default.
-group :assets do
-  gem 'sass-rails',   '~> 3.1.4'
-  gem 'coffee-rails', '~> 3.1.1'
-  gem 'uglifier', '>= 1.0.3'
-end
+# group :assets do
+#   gem 'sass-rails',   '~> 3.1.4'
+#   gem 'coffee-rails', '~> 3.1.1'
+#   gem 'uglifier', '>= 1.0.3'
+# end
 
 gem 'thin'
 
@@ -25,8 +25,6 @@ gem 'jquery-rails'
 
 # Use unicorn as the web server
 # gem 'unicorn'
-
-gem 'thin'
 
 # Deploy with Capistrano
 # gem 'capistrano'
@@ -48,11 +46,10 @@ gem 'rails_admin', :git => 'git://github.com/sferik/rails_admin.git'
 
 # gem 'sunspot_rails'
 
-gem 'thinking-sphinx', '2.0.10'
+#gem 'thinking-sphinx', '2.0.10'
+gem 'thinking-sphinx', '~> 3.1.1'
 #gem 'thinking-sphinx',
 #  :git     => 'git://github.com/pat/thinking-sphinx.git',
 #  :branch  => 'rails3'
   
 gem "paperclip", "~> 2.4"  
-
-gem 'thin'
