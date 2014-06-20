@@ -13,6 +13,11 @@ class ApplicationController < ActionController::Base
     devise_parameter_sanitizer.for(:account_update) {|u| u.permit( :email, :password, :password_confirmation, :current_password )}
   end
 
+  def company_params
+    # params.require(:company).permit(:title, :overview, :addr, :tel, :fax, :email, :site, :skype, :icq)
+    params.require(:company).permit!
+  end
+
   before_filter do
     resource = controller_name.singularize.to_sym
     method = "#{resource}_params"
