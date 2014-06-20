@@ -2,12 +2,21 @@
   <h1>Ваши компании</h1>
 
   <table class="">
+  <tr>
+      <th class="span12"></th>
+      <th>Обновлено</th>
+      <th>&nbsp;</th>
+      <th>&nbsp;</th>
+  </tr>
   <% @companies.each do |company| %>
   <tr>
-      <td class="span14">
+      <td class="span12">
         <strong><%= company.title %></strong><br />
         <% if company.logo? %><%= image_tag company.logo%><% end %>
         <%= simple_format(company.overview) %>
+      </td>
+      <td>
+        <%= company.updated_at.strftime '%d.%m.%Y' %>
       </td>
       <td><%= link_to 'Редактировать', edit_company_path(company), :class => "btn primary" %></td>
       <td><%= link_to 'Удалить', company, confirm: 'Вы уверены?', method: :delete, :class => "btn danger" %></td>
