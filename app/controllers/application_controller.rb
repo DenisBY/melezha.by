@@ -14,7 +14,6 @@ class ApplicationController < ActionController::Base
   end
 
   def company_params
-    # params.require(:company).permit(:title, :overview, :addr, :tel, :fax, :email, :site, :skype, :icq)
     params.require(:company).permit!
   end
 

@@ -69,6 +69,7 @@ class CompaniesController < ApplicationController
 
     respond_to do |format|
       if @company.update_attributes(params[:company])
+        @company.touch
         format.html { redirect_to companies_url, notice: t('company_updated') }
         format.json { head :ok }
       else
