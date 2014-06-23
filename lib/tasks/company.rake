@@ -1,7 +1,7 @@
 namespace :melezha do
 	desc "Проверка давно не обновлявшихся компаний"
 	task :checktime => :environment do
-		date = Date.today-365
+		date = Date.today-30
 		companys = Company.where("updated_at < ? and user_id = 1", date)
 		companys.each do |company|
 			puts "#{company.title} #{company.user.email} #{company.user.username}"

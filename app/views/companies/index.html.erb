@@ -16,7 +16,11 @@
         <%= simple_format(company.overview) %>
       </td>
       <td>
-        <%= company.updated_at.strftime '%d.%m.%Y' %>
+        <% if company.updated_at < Date.today-30 %>
+          <font color="red"><%= company.updated_at.strftime '%d.%m.%Y' %></font>
+        <% else %>
+          <%= company.updated_at.strftime '%d.%m.%Y' %>
+        <% end %>
       </td>
       <td><%= link_to 'Редактировать', edit_company_path(company), :class => "btn primary" %></td>
       <td><%= link_to 'Удалить', company, confirm: 'Вы уверены?', method: :delete, :class => "btn danger" %></td>
