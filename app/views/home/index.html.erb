@@ -56,7 +56,8 @@
           <% if company.email.present? %>Электронная почта: <%= mail_to company.email, nil, :encode => "javascript" %><br /><% end %>
           <% if company.site.present? %>Сайт: <%= link_to company.site, company.site %><br /><% end %>
           <% if company.skype.present? %>Skype: <%= company.skype %><br /><% end %>
-          <% if company.icq.present? %>ICQ: <%= company.icq %><% end %>
+          <% if company.icq.present? %>ICQ: <%= company.icq %><% end %><br />
+          <i>Информация обновлена: <%= company.updated_at.strftime '%d.%m.%Y' %></i>
       <hr>
     <% end %>
   <% end %>
