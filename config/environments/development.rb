@@ -38,15 +38,15 @@ MelezhaBy::Application.configure do
   ActionMailer::Base.delivery_method = :smtp
 
   ActionMailer::Base.smtp_settings = {
-    :address              => "mail01.hoster.by",
+    :address              => "localhost",
     :port                 => "25",
     :openssl_verify_mode  => 'none',
     :tls                  => false,
-    :domain               => "melezha.by",
-    :user_name            => "denis%torrents.of.by",
-    :password             => "linux2linux",
-    :authentication       => "login",
-    :enable_starttls_auto => false
+    # :domain               => "melezha.by",
+    # :user_name            => "denis%torrents.of.by",
+    # :password             => "linux2linux",
+    # :authentication       => "login",
+    # :enable_starttls_auto => false
   }  
 
 end
