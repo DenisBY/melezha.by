@@ -20,7 +20,7 @@
     <%- unless @company.new_record? || !@company.logo? -%>
       <div class="clearfix">          
         <div class="logo_for_edit">
-          <%= image_tag(@company.logo.url, :alt => 'Logo', :title => 'Логотип') %><br />
+          <%= image_tag(@company.logo.url(:medium), :alt => 'Logo', :title => 'Логотип') %><br />
         </div>
           <%= f.label(:delete_logo, 'Удалить логотип') %>
           <div class="input"><%= f.check_box(:delete_logo) %></div>

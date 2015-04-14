@@ -12,7 +12,7 @@
   <tr>
       <td class="span12">
         <strong><%= company.title %></strong><br />
-        <% if company.logo? %><%= image_tag company.logo%><% end %>
+        <% if company.logo? %><%= image_tag company.logo(:medium) %><% end %>
         <%= simple_format(company.overview) %>
       </td>
       <td>

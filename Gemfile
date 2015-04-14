@@ -52,4 +52,4 @@ gem 'thinking-sphinx', '~> 3.1.1'
 #  :git     => 'git://github.com/pat/thinking-sphinx.git',
 #  :branch  => 'rails3'
   
-gem "paperclip", "~> 2.4"  
+gem "paperclip"#, "~> 2.4"  
