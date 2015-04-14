@@ -4,7 +4,7 @@ class Company < ActiveRecord::Base
   has_many :services
   belongs_to :user
 
-  has_attached_file :logo, :styles => { :medium => "300x300>" }
+  has_attached_file :logo, :styles => { :medium => "500x300>" }
   validates_attachment_content_type :logo, :content_type => ["image/jpg", "image/jpeg", "image/png", "image/gif"]
  
   before_validation :clear_logo
