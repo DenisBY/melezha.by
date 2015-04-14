@@ -10,3 +10,4 @@ public/system
 Gemfile.lock
 solr/
 db/sphinx/
+config/production.sphinx.conf
